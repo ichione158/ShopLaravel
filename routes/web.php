@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +20,21 @@ Route::get('/', function () {
         'active' => 'home'
     ];
     return view('pages.home.home', $data);
+});
+
+Route::get('admin', function () {
+    return view('admin.index');
+});
+
+Route::get('admin/login', function () {
+    return view('admin.login');
+});
+
+Route::post('login_admin','LoginController@LoginAdmin');
+
+Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
+{
+    Route::get('/', function () {
+        return view('admin.index');
+    });
 });
