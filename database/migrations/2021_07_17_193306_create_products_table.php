@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('brand_id')->unsigned();
             $table->string('name', 255);
-            $table->decimal('price', 10, 2);
-            $table->text('description');
-            $table->text('image');
-            $table->text('color');
-            $table->integer('code');
+            $table->decimal('price', 10);
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
+            $table->text('color')->nullable();
+            $table->string('code')->nullable();
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('cascade');

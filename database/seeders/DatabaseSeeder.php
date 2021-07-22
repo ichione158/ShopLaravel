@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456'),
             'status' => 2
         ]);
+
+        DB::table('brands')->insert([
+            'name' => 'Adidas'
+        ]);
     }
 }

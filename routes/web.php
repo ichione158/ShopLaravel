@@ -35,6 +35,13 @@ Route::post('login_admin','LoginController@LoginAdmin');
 Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 {
     Route::get('/', function () {
-        return view('admin.index');
+        return view('admin.home.home');
+    });
+
+    // Product
+    Route::prefix('product')->group(function () {
+        Route::view('add', 'admin.products.add');
+
+        Route::post('product_add','ProductController@productAdd');
     });
 });
