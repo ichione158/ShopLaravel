@@ -44,4 +44,11 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
         Route::post('product_add','ProductController@productAdd');
     });
+
+    // Brand
+    Route::prefix('brand')->group(function () {
+        Route::view('add', 'admin.brands.add');
+
+        Route::post('brand_add','BrandController@brandAdd');
+    });
 });
