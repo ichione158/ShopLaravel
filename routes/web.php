@@ -45,3 +45,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
         Route::post('product_add','ProductController@productAdd');
     });
 });
+
+Route::get('logout', function () {
+    Auth::logout();
+    return redirect('/');
+});

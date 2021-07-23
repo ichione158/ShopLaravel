@@ -108,7 +108,7 @@
                 $('.alert').hide();
             }else{
                 $('.error-img').show();
-                $('.error-img').html('Flie must be jpg, png, git!');
+                $('.error-img').html('File must be jpg, png, git!');
             }
         });
     });

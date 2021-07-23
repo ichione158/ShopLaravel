@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -30,12 +31,13 @@ class ProductController extends Controller
 
         // Create product
         $products = Product::create([
-            'brand_id'    => 1,
-            'name'        => $request->name,
-            'price'       => $request->price,
-            'description' => $request->description ? $request->description : null,
-            'image'       => $file_name ? $file_name : null,
-            'code'        => $request->code ? $request->code : null
+            'brand_id'     => 1,
+            'name'         => $request->name,
+            'price'        => $request->price,
+            'description'  => $request->description ? $request->description : null,
+            'image'        => $file_name ? $file_name : null,
+            'code'         => $request->code ? $request->code : null,
+            'user_created' => Auth::id()
         ]);
         
         // Link file
