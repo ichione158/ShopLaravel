@@ -13,8 +13,7 @@ class BrandController extends Controller
 
         // Create brand
         $brands = Brand::create([
-        'brand_id'    => 1,
-        'name'        => $request->name,
+            'name'        => $request->name
         ]); 
 
         return 'success';
