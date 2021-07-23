@@ -51,4 +51,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
         Route::post('brand_add','BrandController@brandAdd');
     });
+
+    Route::get('logout_admin', function () {
+        Auth::logout();
+        return redirect('admin/login');
+    });
 });
