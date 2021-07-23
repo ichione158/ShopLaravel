@@ -17,11 +17,7 @@ class BrandController extends Controller
         'name'        => $request->name,
         ]); 
 
-        // Update path product
-        Product::where('id', '=', $brands->id)->update($data);
-
         return 'success';
-     
     }
     
 }
