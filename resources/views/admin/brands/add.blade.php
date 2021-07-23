@@ -46,9 +46,6 @@
 <!-- end section -->
 <script>
     $('#add_brand').click(function(){
-
-        let data_post   = $('#form-brand')[0];
-        let formData    = new FormData(data_post);
         let name = $('#name').val();
 
         if(name == '' || name == null){
@@ -58,12 +55,11 @@
         }
 
         $.ajax({
-            enctype: 'multipart/form-data',
             type: 'POST',
             url: '/admin/brand/brand_add',
-            data: formData,
-            contentType: false, 
-            processData: false
+            data: {
+                name : name
+            }
         }).done(function(resp){
             if(resp.trim() == 'success'){
                 alert('Cập nhật thành công');
