@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('pages.home.home', $data);
 });
 
-Route::get('admin', function () {
-    return view('admin.index');
-});
-
 Route::get('admin/login', function () {
     return view('admin.login');
 });
@@ -40,9 +36,15 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
     // Product
     Route::prefix('product')->group(function () {
-        Route::view('add', 'admin.products.add');
+        
+        Route::get('add', function () {
+            return view('admin.products.add');
+        });
+
+        Route::get('edit/{id}', 'ProductController@Edit');
 
         Route::post('product_add','ProductController@productAdd');
+        Route::post('product_edit/{id}','ProductController@productEdit');
     });
 
     // Brand
