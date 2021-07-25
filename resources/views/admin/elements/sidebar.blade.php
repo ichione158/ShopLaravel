@@ -27,8 +27,8 @@
                 </a>
                 <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="admin/product/list">List</a>
-                        <a class="nav-link" href="admin/product/add">Add new</a>
+                        <a class="nav-link" href="{{ route('product.index') }}">List</a>
+                        <a class="nav-link" href="{{ route('product.create') }}">Add new</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
