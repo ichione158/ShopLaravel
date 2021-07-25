@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+    public function index(){
+        $data['products'] = Product::all();
+        
+        return view('admin.products.list', $data);
+    }
+
     public function productAdd(Request $request){
         // Check file exist
         if($request->hasFile('img')){
@@ -35,7 +41,7 @@ class ProductController extends Controller
             'name'        => $request->name,
             'price'       => $request->price,
             'description' => $request->description ? $request->description : null,
-            'image'       => $file_name ? $file_name : null,
+            'image'       => !empty($file_name) ? $file_name : null,
             'code'        => $request->code ? $request->code : null
         ]);
         
@@ -46,14 +52,16 @@ class ProductController extends Controller
         }
 
         // Move file to folder
-        $file->move($folder_file, $file_name);
-
+        if(!empty($file_name)){
+            $file->move($folder_file, $file_name);
+        }
+        
         $data = [
             'path' => $folder_file
         ];
 
         // Update path product
-        Product::where('id', '=', $products->id)->update($data);
+        Product::where('id', '=', $product->id)->update($data);
 
         return 'success';
     }

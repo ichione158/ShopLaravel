@@ -21,6 +21,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
+            <button id="back" class="btn btn-success mt-4">Back</button>
             <h1 class="mt-4">Add New Product</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Product</li>
@@ -77,8 +78,6 @@
 <!-- end section -->
 <script>
     $('#add_product').click(function(){
-        let id = <?= $product->id ?>;
-
         let data_post   = $('#form-product')[0];
         let formData    = new FormData(data_post);
         let name = $('#name').val();
@@ -99,7 +98,7 @@
         $.ajax({
             enctype: 'multipart/form-data',
             type: 'POST',
-            url: '/admin/product/product_edit/'+ id,
+            url: '{{ route("product.edit", $product->id) }}',
             data: formData,
             contentType: false, 
             processData: false
@@ -115,6 +114,10 @@
             }
         });
     });
+
+    $('#back').click(function(){
+        window.history.back();
+    })
 </script>
 
 @endsection
