@@ -50,9 +50,15 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
     // Brand
     Route::prefix('brand')->group(function () {
-        Route::view('add', 'admin.brands.add');
+        Route::get('create', function () {
+            return view('admin.brands.add');
+        })->name('brand.create');
+        Route::post('/','BrandController@brandAdd')->name('brand.add');
 
-        Route::post('brand_add','BrandController@brandAdd');
+        Route::get('/{id}', 'BrandController@Edit')->name('brand.show');
+        Route::post('/{id}','BrandController@brandEdit')->name('brand.edit');
+
+        Route::get('/', 'BrandController@index')->name('brand.index');
     });
 
     Route::get('logout_admin', function () {

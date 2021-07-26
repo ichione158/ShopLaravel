@@ -16,8 +16,8 @@
                 </a>
                 <div class="collapse" id="collapseBrand" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url('admin/brand/list') }}">List</a>
-                        <a class="nav-link" href="{{ url('admin/brand/add') }}">Add new</a>
+                        <a class="nav-link" href="{{ route('brand.index') }}">List</a>
+                        <a class="nav-link" href="{{ route('brand.create') }}">Add new</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="false" aria-controls="collapseLayouts">

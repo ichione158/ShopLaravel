@@ -22,7 +22,7 @@
     <main>
         <div class="container-fluid px-4">
             <button id="back" class="btn btn-success mt-4">Back</button>
-            <h1 class="mt-4">Add New Brand</h1>
+            <h1 class="mt-4">Edit Brand</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Brand</li>
             </ol>
@@ -31,12 +31,12 @@
                     <div class="col-lg-9 brand">
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Brand name</span>
-                            <input id="name" type="text" name="name" class="form-control" placeholder="Input name" required>
+                            <input id="name" type="text" name="name" class="form-control" value="<?= !empty($brand) ? $brand->name : '' ?>" placeholder="Input name" required>
                         </div>
                         <span class="alert error-name"></span>
                     </div>
 
-                    <button id="add_brand" type="button" class="btn btn-success">Create Brand</button>
+                    <button id="add_brand" type="button" class="btn btn-success">Edit Brand</button>
                 </form>
             </div>
         </div>
@@ -57,7 +57,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '{{ route("brand.add") }}',
+            url: '{{ route("brand.edit", $brand->id) }}',
             data: {
                 name : name
             }
