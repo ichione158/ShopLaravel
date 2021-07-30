@@ -14,6 +14,17 @@
     </head>
     <body class="sb-nav-fixed">
 
+        <style>
+            .alert{
+                color: red;
+                font-size: 0.8rem;
+                font-weight: 700;
+                margin: 0;
+                padding: 0;
+                display: none;
+            }
+        </style>
+
         {{-- Header!!! --}}
         @include('admin.elements.header')
 

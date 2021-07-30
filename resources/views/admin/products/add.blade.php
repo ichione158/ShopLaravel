@@ -6,15 +6,6 @@
     .product{
         margin: 0 0 1.5rem 0;
     }
-
-    .alert{
-        color: red;
-        font-size: 0.8rem;
-        font-weight: 700;
-        margin: 0;
-        padding: 0;
-        display: none;
-    }
 </style>
 
 <!-- section -->

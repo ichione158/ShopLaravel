@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                    <button id="add_product" type="button" class="btn btn-success">Create Product</button>
+                    <button id="add_product" type="button" class="btn btn-success">Edit Product</button>
                 </form>
             </div>
         </div>

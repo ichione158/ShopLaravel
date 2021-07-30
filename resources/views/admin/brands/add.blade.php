@@ -56,7 +56,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/admin/brand/brand_add',
+            url: '{{ route("brand.add") }}',
             data: {
                 name : name
             }

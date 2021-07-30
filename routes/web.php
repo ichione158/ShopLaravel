@@ -36,23 +36,32 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
     // Product
     Route::prefix('product')->group(function () {
-        
+        Route::get('/', 'ProductController@index')->name('product.index');
+
         Route::get('create', function () {
             return view('admin.products.add');
         })->name('product.create');
+
         Route::post('/','ProductController@productAdd')->name('product.add');
 
         Route::get('/{id}', 'ProductController@Edit')->name('product.show');
+
         Route::post('/{id}','ProductController@productEdit')->name('product.edit');
 
-        Route::get('/', 'ProductController@index')->name('product.index');
     });
 
     // Brand
     Route::prefix('brand')->group(function () {
-        Route::view('add', 'admin.brands.add');
 
-        Route::post('brand_add','BrandController@brandAdd');
+        Route::get('/', 'BrandController@index')->name('brand.index');
+
+        Route::post('/list','BrandController@listBrands')->name('brand.list');
+
+        Route::post('/','BrandController@brandAdd')->name('brand.add');
+
+        Route::get('/{id}', 'BrandController@Edit')->name('brand.show');
+
+        Route::post('/{id}','BrandController@brandEdit')->name('brand.edit');
     });
 
     Route::get('logout_admin', function () {
