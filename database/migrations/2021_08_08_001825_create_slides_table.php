@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePost extends Migration
+class CreateSlidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePost extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('slides', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title_post');
-            $table->string('image_post',100);
-            $table->longText('content_post');
-            $table->text('description');
-            $table->integer('status_post');
+            $table->string('image');
+            $table->integer('slide_status');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreatePost extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('slides');
     }
 }
