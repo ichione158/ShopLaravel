@@ -13,9 +13,9 @@ class CategoryPost extends Migration
      */
     public function up()
     {
-        Schema::create('category_post', function (Blueprint $table) {
-            $table->bigIncrements('id_category');
-            $table->string('title',100);
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
             $table->integer('category_status');
             $table->timestamps();
         });

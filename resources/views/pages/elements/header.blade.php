@@ -86,17 +86,19 @@
                     </ul>
                   </li>
                   <li> <a href="it_contact.html">Contact</a>
+                  </li>
+                  <li> <a href="#">Hello: <?= Auth::user()->name ?></a>
                     <ul>
-                      <li><a href="it_contact.html">Contact Page 1</a></li>
-                      <li><a href="it_contact_2.html">Contact Page 2</a></li>
+                      <li><a href="it_shop.html">Profile</a></li>
+                      <li><a href="it_shop.html">Order</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-              <div class="search_icon">
+              {{-- <div class="search_icon">
                 <ul>
                   <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                </ul>
+                </ul> --}}
               </div>
             </div>
             <!-- menu end -->

@@ -22,8 +22,8 @@ Route::get('/', function () {
     return view('pages.home.home', $data);
 });
 
-Route::get('admin/login', function () {
-    return view('admin.login');
+Route::get('login', function () {
+    return view('login');
 });
 
 Route::post('login_admin','LoginController@LoginAdmin');
@@ -62,6 +62,20 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
         Route::get('/{id}', 'BrandController@Edit')->name('brand.show');
 
         Route::post('/{id}','BrandController@brandEdit')->name('brand.edit');
+    });
+
+    // Category
+    Route::prefix('category')->group(function () {
+
+        Route::get('/', 'CategoryController@index')->name('category.index');
+
+        Route::post('/list','CategoryController@listCategories')->name('category.list');
+
+        Route::post('/','CategoryController@categoryAdd')->name('category.add');
+
+        Route::get('/{id}', 'CategoryController@Edit')->name('category.show');
+
+        Route::post('/{id}','CategoryController@categoryEdit')->name('category.edit');
     });
 
     Route::get('logout_admin', function () {
