@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -37,7 +38,7 @@ class ProductController extends Controller
 
         // Create product
         $product = Product::create([
-            'brand_id'    => 1,
+            'brand_id'    => $request->brand_id,
             'name'        => $request->name,
             'price'       => $request->price,
             'description' => $request->description ? $request->description : null,
@@ -68,6 +69,9 @@ class ProductController extends Controller
 
     public function Edit($id){
         $product = Product::find($id);
+
+        $brands = Brand::all();
+        $data['brands'] = $brands;
 
         if(!empty($product)){
             $data['product'] = $product;
@@ -110,7 +114,7 @@ class ProductController extends Controller
         
         // Data update
         $data = [
-            'brand_id'    => 1,
+            'brand_id'    => $request->brand_id,
             'name'        => $request->name,
             'price'       => $request->price,
             'description' => $request->description ? $request->description : null,

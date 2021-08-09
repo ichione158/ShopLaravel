@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use App\Models\Brand;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\LoginController;
 /*
@@ -19,6 +22,9 @@ Route::get('/', function () {
         'title'  => 'It.Next - Ichione',
         'active' => 'home'
     ];
+
+    $data['products'] = Product::all();
+
     return view('pages.home.home', $data);
 });
 
@@ -39,7 +45,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
         Route::get('/', 'ProductController@index')->name('product.index');
 
         Route::get('create', function () {
-            return view('admin.products.add');
+            $brands = Brand::all();
+            $data['brands'] = $brands;
+            return view('admin.products.add', $data);
         })->name('product.create');
 
         Route::post('/','ProductController@productAdd')->name('product.add');

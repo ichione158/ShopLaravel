@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="it_home.html"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
+            <div class="logo"> <a href="it_home.html"><img src="{{URL::asset('front-end/images/logos/it_logo.png')}}" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -87,12 +87,17 @@
                   </li>
                   <li> <a href="it_contact.html">Contact</a>
                   </li>
+                  @if(!empty(Auth::user()))
                   <li> <a href="#">Hello: <?= Auth::user()->name ?></a>
                     <ul>
                       <li><a href="it_shop.html">Profile</a></li>
                       <li><a href="it_shop.html">Order</a></li>
                     </ul>
                   </li>
+                  @else
+                  <li> <a href="/login">Login</a></li>
+                  <li> <a href="#">Resign</a></li>
+                  @endif
                 </ul>
               </div>
               {{-- <div class="search_icon">

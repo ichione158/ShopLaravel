@@ -24,7 +24,7 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Code</th>
-                                <th>Uploads</th>
+                                <th>Status</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -41,14 +41,17 @@
                                     {{ $row->name }}
                                 </td>
                                 <td>
-                                    <img src="{{ !empty($row->image) ? url($row->path.$row->image) : '' }}" alt="" style="width: 50%; height: 200px">
+                                    <img src="{{ !empty($row->image) ? url($row->path.$row->image) : '' }}" alt="" style="width: 300px; height: 200px">
                                 </td>
                                 <td>
                                     {{ $row->code }}
                                 </td>
-                                <td>
-                                    <button class="btn btn-success">Uploads</button>
-                                </td>
+                                <th>
+                                    <div class="box-1">
+                                        <input type='checkbox'/>
+                                        <span class="toogle"></span>
+                                    </div>
+                                </th>
                                 <td>
                                     <a href="{{ route('product.show', $row->id) }}">Edit</a> | <a href="">Delete</a>
                                 </td>

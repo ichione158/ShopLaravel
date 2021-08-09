@@ -30,6 +30,27 @@
                 <form id="form-product">
                     <div class="col-lg-9 product">
                         <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">Brand name</span>
+                            <select class="form-control" name="brand_id" id="brand_id">
+                                <option value="">Chọn thương hiệu</option>
+                                @if(!empty($brands))
+                                    @foreach($brands as $row)
+                                        <?php 
+                                            $style = '';
+                                            if($row['id'] == $product->brand_id){
+                                                $style = 'selected';
+                                            }
+                                        ?>
+                                        <option {{ $style }} value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </div>
+                        <span class="alert error-brand"></span>
+                    </div>
+
+                    <div class="col-lg-9 product">
+                        <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">Product name</span>
                             <input id="name" type="text" name="name" class="form-control" value="<?= !empty($product) ? $product->name : '' ?>" placeholder="Input name" required>
                         </div>
@@ -82,6 +103,13 @@
         let formData    = new FormData(data_post);
         let name = $('#name').val();
         let price = $('#price').val();
+        let brand_id = $('#brand_id').val();
+
+        if(brand_id == '' || brand_id == null){
+            $('.error-brand').show();
+            $('.error-brand').html('Product brand not null!');
+            return;
+        }
 
         if(name == '' || name == null){
             $('.error-name').show();
