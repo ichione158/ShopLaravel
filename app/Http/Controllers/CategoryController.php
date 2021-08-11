@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,14 @@ class CategoryController extends Controller
 
     public function categoryAdd(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'name' => 'unique:categories'
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['error'=>$validator->errors()->all()]);
+        }
+
         // Create brand
         $category = Category::create([
             'name' => $request->name,
@@ -35,6 +44,14 @@ class CategoryController extends Controller
     }
 
     public function categoryEdit(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'name' => 'unique:categories'
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['error'=>$validator->errors()->all()]);
+        }
+
         $data = [
             'name' => $request->name
         ];

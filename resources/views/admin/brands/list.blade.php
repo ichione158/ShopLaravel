@@ -91,7 +91,10 @@
                 name : name
             }
         }).done(function(resp){
-            if(resp.trim() == 'success'){
+            if(typeof resp.error === 'object'){
+                $('.error-name').show();
+                $('.error-name').html(resp.error[0]);
+            }else{
                 alert('Cập nhật thành công');
                 $('#form-brand #name').val('');
                 $('.alert').hide();
@@ -146,8 +149,10 @@
                 name : name
             }
         }).done(function(resp){
-            console.log(resp);
-            if(resp.trim() == 'success'){
+            if(typeof resp.error === 'object'){
+                $('.error-name').show();
+                $('.error-name').html(resp.error[0]);
+            }else{
                 alert('Cập nhật thành công');
                 $('.alert').hide();
                 listBrands();
