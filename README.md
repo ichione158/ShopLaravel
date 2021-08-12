@@ -4,6 +4,8 @@ Install/Update composer
 
 - composer install --ignore-platform-reqs
 
+- composer require cviebrock/eloquent-sluggable
+
 Generate Key for app
 
 - php artisan key:generate 

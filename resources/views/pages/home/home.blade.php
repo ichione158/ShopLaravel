@@ -153,7 +153,7 @@
                 <div class="product_img"> <img class="img-responsive" src="{{URL::asset($row->path.$row->image)}}" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="{{ $row->id }}">{{ $row['name'] }}</a></h4>
+                    <h4><a href="{{ route('product.detail', $row->slug) }}">{{ $row->name }}</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> 

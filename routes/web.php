@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 use App\Http\Controllers\LoginController;
 /*
@@ -28,17 +29,19 @@ Route::get('/', function () {
     return view('pages.home.home', $data);
 });
 
-Route::get('login', function () {
-    return view('login');
-});
+Route::get('/{Product::slug}', function ($slugString) {
+    $data['title'] = 'Shop Detail';
+    
+    $data['product'] = Product::where('slug','=',$slugString)->firstOrFail();
 
-Route::post('login_admin','LoginController@LoginAdmin');
+    return view('pages.products.detail', $data);
+})->name('product.detail');
 
 Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 {
-    Route::get('/', function () {
+    Route::get('/home', function () {
         return view('admin.home.home');
-    });
+    })->name('admin');
 
     // Product
     Route::prefix('product')->group(function () {
@@ -91,6 +94,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
         return redirect('admin/login');
     });
 });
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::post('login_admin','LoginController@LoginAdmin');
 
 Route::get('logout', function () {
     Auth::logout();

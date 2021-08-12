@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="it_home.html"><img src="{{URL::asset('front-end/images/logos/it_logo.png')}}" alt="logo" /></a> </div>
+            <div class="logo"> <a href="/"><img src="{{URL::asset('front-end/images/logos/it_logo.png')}}" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -92,6 +92,9 @@
                     <ul>
                       <li><a href="it_shop.html">Profile</a></li>
                       <li><a href="it_shop.html">Order</a></li>
+                      @if(Auth::user()->status == 2)
+                      <li><a href="{{ route('admin') }}">Page Admin</a></li>
+                      @endif
                     </ul>
                   </li>
                   @else

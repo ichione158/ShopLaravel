@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProductController extends Controller
 {
@@ -40,6 +41,7 @@ class ProductController extends Controller
         $product = Product::create([
             'brand_id'    => $request->brand_id,
             'name'        => $request->name,
+            'slug'        => SlugService::createSlug(Product::class, 'slug', $request->name),
             'price'       => $request->price,
             'description' => $request->description ? $request->description : null,
             'image'       => !empty($file_name) ? $file_name : null,
@@ -116,6 +118,7 @@ class ProductController extends Controller
         $data = [
             'brand_id'    => $request->brand_id,
             'name'        => $request->name,
+            'slug'        => SlugService::createSlug(Product::class, 'slug', $request->name),
             'price'       => $request->price,
             'description' => $request->description ? $request->description : null,
             'image'       => !empty($file_name) ? $file_name : $product->image,
