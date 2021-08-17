@@ -10,14 +10,19 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function LoginAdmin(Request $request){
+    public function Login(Request $request){
         $data = [
             'email'    => $request->email,
             'password' => $request->password
         ];
 
         if (Auth::attempt($data)) {
-            return 'Success';
+            // if(Auth::user()->status == 2){
+            //     return 'admin';
+            // }else{
+            //     return 'user';
+            // }
+            return 'user';
         } else {
             return 'Error';
         }

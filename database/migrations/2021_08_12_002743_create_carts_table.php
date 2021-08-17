@@ -22,6 +22,7 @@ class CreateCartsTable extends Migration
             $table->double('quantity');
             $table->text('image')->nullable();
             $table->text('path')->nullable();
+            $table->integer('status')->unsigned();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');

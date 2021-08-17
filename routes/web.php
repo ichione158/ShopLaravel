@@ -29,16 +29,24 @@ Route::get('/', function () {
     return view('pages.home.home', $data);
 });
 
-Route::get('/{Product::slug}', function ($slugString) {
-    $data['title'] = 'Shop Detail';
-    
-    $data['product'] = Product::where('slug','=',$slugString)->firstOrFail();
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
-    return view('pages.products.detail', $data);
-})->name('product.detail');
+Route::post('login_user','LoginController@Login');
 
-Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
 {
+    Route::get('home/logout_admin', function () {
+        Auth::logout();
+        return redirect()->route('login');
+    })->name('admin.logout');
+
     Route::get('/home', function () {
         return view('admin.home.home');
     })->name('admin');
@@ -88,20 +96,18 @@ Route::group(['prefix' => 'admin',  'middleware' => 'CheckAdmin'], function()
 
         Route::post('/{id}','CategoryController@categoryEdit')->name('category.edit');
     });
-
-    Route::get('logout_admin', function () {
-        Auth::logout();
-        return redirect('admin/login');
-    });
 });
 
-Route::get('login', function () {
-    return view('login');
+Route::get('/{Product::slug}', function ($slugString) {
+    $data['title'] = 'Shop Detail';
+    
+    $data['product'] = Product::where('slug','=',$slugString)->firstOrFail();
+
+    return view('pages.products.detail', $data);
+})->name('product.detail');
+
+Route::group(['prefix' => 'cart', 'middleware' => 'CheckLogin'], function()
+{
+    Route::post('addToCart/{id}', 'CartController@addToCart')->name('cart.add');
 });
 
-Route::post('login_admin','LoginController@LoginAdmin');
-
-Route::get('logout', function () {
-    Auth::logout();
-    return redirect('/');
-});

@@ -86,7 +86,7 @@
         let password = $('#inputPassword').val();
         $.ajax({
             type: 'POST',
-            url : '/login_admin',
+            url : '/login_user',
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
@@ -95,8 +95,10 @@
                 password : password
             }
         }).done(function(resp){
-            if(resp.trim() == 'Success'){
-                location.href = '/admin';
+            if(resp.trim() == 'admin'){
+                location.href = '/admin/home';
+            }else if(resp.trim() == 'user'){
+                window.history.back();
             }else{
                 alert('Email hoặc mật khẩu của bạn không đúng!');
             }

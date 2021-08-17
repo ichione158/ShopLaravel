@@ -92,13 +92,14 @@
                     <ul>
                       <li><a href="it_shop.html">Profile</a></li>
                       <li><a href="it_shop.html">Order</a></li>
+                      <li><a href="logout">Logout</a></li>
                       @if(Auth::user()->status == 2)
                       <li><a href="{{ route('admin') }}">Page Admin</a></li>
                       @endif
                     </ul>
                   </li>
                   @else
-                  <li> <a href="/login">Login</a></li>
+                  <li> <a href="{{ route('login') }}">Login</a></li>
                   <li> <a href="#">Resign</a></li>
                   @endif
                 </ul>

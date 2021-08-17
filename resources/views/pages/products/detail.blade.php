@@ -11,25 +11,30 @@
           <div class="row">
             <div class="col-xl-6 col-lg-12 col-md-12">
               <div class="product_detail_feature_img hizoom hi2">
-                <div class='hizoom hi2'> <img src="images/it_service/1.jpg" alt="#" /> </div>
+                <div class='hizoom hi2'> <img src="{{ URL::asset($product->path.$product->image) }}"/> </div>
               </div>
             </div>
             <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
               <div class="product-heading">
                 <h2>{{ $product->name }}</h2>
               </div>
-              <div class="product-detail-side"> <span><del>$25.00</del></span><span class="new-price">$20.00</span> <span class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </span> <span class="review">(5 customer review)</span> </div>
+              <div class="product-detail-side"> 
+                <span><del>{{ number_format( $product->price + ($product->price * 0.1)) }}</del></span>
+                <span class="new-price">{{ number_format($product->price) }} VNĐ</span>
+                <span class="review">(5 customer review)</span>
+              </div>
+
               <div class="detail-contant">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. 
-                  Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.<br>
-                  <span class="stock">2 in stock</span> </p>
-                <form class="cart" method="post" action="it_cart.html">
+                <form class="cart" method="post" action="{{ route('cart.add', $product->id) }}">
+                  @csrf
+                  <input type="text" name="product_id" value="{{ $product->id }}" hidden>
                   <div class="quantity">
                     <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" type="number">
                   </div>
                   <button type="submit" class="btn sqaure_bt">Add to cart</button>
                 </form>
               </div>
+
               <div class="share-post"> <a href="#" class="share-text">Share</a>
                 <ul class="social_icons">
                   <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -231,4 +236,5 @@
     </div>
 </div>
 <!-- end section -->
+
 @endsection
