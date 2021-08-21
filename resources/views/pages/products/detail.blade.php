@@ -58,14 +58,7 @@
                   <div class="tab-content">
                     <div id="description" class="tab-pane active">
                       <div class="product_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac elementum elit. Morbi eu arcu ipsum. Aliquam lobortis accumsan quam ac convallis. 
-                          Fusce elit mauris, aliquet at odio vel, convallis vehicula nisi. Morbi vitae porttitor dolor. Integer eget metus sem. Nam venenatis mauris vel leo pulvinar, 
-                          id rutrum dui varius. Nunc ac varius quam, non convallis magna. Donec suscipit commodo dapibus.<br>
-                          <br>
-                          Vestibulum et ullamcorper ligula. Morbi bibendum tempor rutrum. 
-                          Pelle tesque auctor purus id molestie ornare.Donec eu lobortis risus. Pellentesque sed aliquam lorem. Praesent pulvinar lorem vel mauris ultrices posuere. 
-                          Phasellus elit ex, gravida a semper ut, venenatis vitae diam. Nullam eget leo massa. Aenean eu consequat arcu, vitae scelerisque quam. Suspendisse risus turpis, 
-                          pharetra a finibus vitae, lobortis et mi.</p>
+                        <p>{{ $product->description }}</p>
                       </div>
                     </div>
                     <div id="reviews" class="tab-pane fade">
@@ -181,20 +174,6 @@
         </div>
         <div class="col-md-3">
           <div class="side_bar">
-            <div class="side_bar_blog">
-              <h4>SEARCH</h4>
-              <div class="side_bar_search">
-                <div class="input-group stylish-input-group">
-                  <input class="form-control" placeholder="Search" type="text">
-                  <span class="input-group-addon">
-                  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                  </span> </div>
-              </div>
-            </div>
-            <div class="side_bar_blog">
-              <h4>GET A QUOTE</h4>
-              <p>An duo lorem altera gloriatur. No imperdiet adver sarium pro. No sit sumo lorem. Mei ea eius elitr consequ unturimperdiet.</p>
-              <a class="btn sqaure_bt" href="it_service.html">View Service</a> </div>
             <div class="side_bar_blog">
               <h4>OUR SERVICE</h4>
               <div class="categary">

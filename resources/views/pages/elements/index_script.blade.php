@@ -129,6 +129,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
 <!-- end google map js -->
 <script src='{{URL::asset('front-end/js/hizoom.js')}}'></script>
+
+
 <script>
   $('.hi1').hiZoom({
       width: 300,
@@ -138,4 +140,8 @@
       width: 400,
       position: 'right'
   });
+
+  $('.continue').click(function(){
+    location.href = '/';
+  })
 </script>

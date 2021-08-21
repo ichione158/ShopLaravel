@@ -17,7 +17,8 @@ class CreateCartsTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('product_name', 255);
+            $table->text('product_name');
+            $table->text('product_slug');
             $table->decimal('product_price', 10);
             $table->double('quantity');
             $table->text('image')->nullable();

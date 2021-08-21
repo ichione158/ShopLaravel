@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+    public function userCart(){
+        $user_id = Auth::id();
+
+        $data['carts'] = DB::table('carts')->where('user_id', '=', $user_id)->get();
+
+        $data['title'] = 'Shopping Cart';
+
+        return view('pages.carts.list_card', $data);
+    }
+
     public function addToCart(Request $request, $id){
         $product = Product::find($id);
         $quantity = $request->quantity;
@@ -22,9 +33,9 @@ class CartController extends Controller
                         ->where('status', '=', 0)
                         ->get();
 
-        if(!empty($ProductCart)){
+        if(!$ProductCart->isEmpty()){
             $quantityNew = $ProductCart[0]->quantity + $quantity;
-            if($quantity_new > 10){
+            if($quantityNew > 10){
                 $quantityNew = 10;
             }
             
@@ -40,12 +51,15 @@ class CartController extends Controller
                 'product_id'    => $id,
                 'user_id'       => Auth::id(),
                 'product_name'  => $product->name,
+                'product_slug'  => $product->slug,
                 'product_price' => $product->price,
                 'quantity'      => $quantity,
                 'image'         => $product->image,
                 'path'          => $product->path,
                 'status'        => 0
             ]); 
-        }                     
+        }    
+        
+        return redirect()->route('cart.list');
     }
 }

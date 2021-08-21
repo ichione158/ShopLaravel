@@ -108,6 +108,8 @@ Route::get('/{Product::slug}', function ($slugString) {
 
 Route::group(['prefix' => 'cart', 'middleware' => 'CheckLogin'], function()
 {
+    Route::get('/list', 'CartController@userCart')->name('cart.list');
+
     Route::post('addToCart/{id}', 'CartController@addToCart')->name('cart.add');
 });
 

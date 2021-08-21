@@ -150,7 +150,7 @@
           @foreach($products as $key => $row)
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
               <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="{{URL::asset($row->path.$row->image)}}" alt=""> </div>
+                <div class="product_img"> <img style="width:300px; height:300px" class="img-responsive" src="{{URL::asset($row->path.$row->image)}}" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
                     <h4><a href="{{ route('product.detail', $row->slug) }}">{{ $row->name }}</a></h4>

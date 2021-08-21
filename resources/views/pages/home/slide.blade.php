@@ -6,9 +6,9 @@
           <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
           <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
             <ul>
-              <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{('front-end/images/it_service/slide1.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Computer Services" data-description="">
+              <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{('front-end/images/it_service/sketchy_banner.png')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Computer Services" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="{{('front-end/images/it_service/slide1.jpg')}}"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                <img src="{{('front-end/images/it_service/sketchy_banner.png')}}"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS -->
                 <!-- LAYER NR. BG -->
                 <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
@@ -62,7 +62,7 @@
                                 data-splitout="none" 
                                 data-responsive_offset="on" 
                                 data-elementdelay="0.05" 
-                                style="z-index: 6; white-space: nowrap;">Computer Services </div>
+                                style="z-index: 6; white-space: nowrap;">Sketchy Shop</div>
                 <!-- LAYER NR. 3 -->
                 <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                                 id="slide-18-layer-412" 
@@ -80,11 +80,11 @@
                                 data-splitin="none" 
                                 data-splitout="none" 
                                 data-responsive_offset="on" 
-                                style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
+                                style="z-index: 7; white-space: nowrap;">Welcome to Sketchy </div>
               </li>
-              <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{('front-end/images/it_service/slide2.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
+              <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{('front-end/images/it_service/sketchy_banner_2.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="{{('front-end/images/it_service/slide2.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                <img src="{{('front-end/images/it_service/sketchy_banner_2.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS -->
                 <!-- LAYER NR. BG -->
                 <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
