@@ -76,9 +76,7 @@
                   <li> <a href="it_shop.html">Shop</a>
                     <ul>
                       <li><a href="it_shop.html">Shop List</a></li>
-                      <li><a href="it_shop_detail.html">Shop Detail</a></li>
-                      <li><a href="it_cart.html">Shopping Cart</a></li>
-                      <li><a href="it_checkout.html">Checkout</a></li>
+                      <li><a href="{{ route('cart.list') }}">Shopping Cart</a></li>
                     </ul>
                   </li>
                   <li> <a href="it_contact.html">Contact</a>

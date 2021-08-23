@@ -62,4 +62,25 @@ class CartController extends Controller
         
         return redirect()->route('cart.list');
     }
+
+    public function updateCart(Request $request){
+        $id = $request->id;
+
+        $quantity = $request->quantity;
+
+        $check = Cart::find($id);
+
+        if($check !== null){
+
+            if($quantity > 10){
+                $quantity = 10;
+            }
+
+            $data = [
+                'quantity' => $quantity
+            ];
+
+            Cart::where('id', '=', $id)->update($data);
+        }
+    }
 }

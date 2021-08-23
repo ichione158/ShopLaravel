@@ -143,5 +143,31 @@
 
   $('.continue').click(function(){
     location.href = '/';
-  })
+  });
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    }
+  });
+
+  $('#update_cart').click(function(){
+    let div = $('.cart_product');
+    for(let i = 0; i < div.length; i++){
+      let id = $($(div[i])).data('id');
+      let quantity = $("#product_quantity_"+id).val();
+      
+      $.ajax({
+        type: "POST",
+        url : '{{ route("cart.update") }}',
+        data:{
+          quantity: quantity,
+          id: id
+        }
+      })
+    }
+    
+    location.href = '{{ route("cart.list")}}';
+  });
+
 </script>

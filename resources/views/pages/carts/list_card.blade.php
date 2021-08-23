@@ -29,13 +29,13 @@
                       $total_price = $row->product_price * $row->quantity;
                       $sup_total += $total_price;
                     ?>
-                    <tr>
+                    <tr class="cart_product" data-id="<?= $row->id ?>">
                       <td class="col-sm-8 col-md-6"><div class="media"> <a class="thumbnail pull-left" href="{{ route('product.detail', $row->product_slug) }}"> <img class="media-object" src="{{ URL::asset($row->path.$row->image) }}" alt="#"></a>
                           <div class="media-body">
                             <h4 class="media-heading"><a href="{{ route('product.detail', $row->product_slug) }}">{{ $row->product_name }}y</a></h4>
                             <span>Status: </span><span class="text-success">In Stock</span> </div>
                         </div></td>
-                      <td class="col-sm-1 col-md-1" style="text-align: center"><input class="form-control" value="{{ $row->quantity }}" type="email">
+                      <td class="col-sm-1 col-md-1" style="text-align: center"><input class="form-control" id="product_quantity_<?= $row->id ?>" value="{{ $row->quantity }}" type="email">
                       </td>
                       <td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ number_format($row->product_price) }} VNĐ</p></td>
                       <td class="col-sm-1 col-md-1 text-center"><p class="price_table">{{ number_format($total_price)}} VNĐ</p></td>
@@ -45,9 +45,16 @@
                 @endif
               </tbody>
             </table>
-            <div class="table">
-
-            </div>
+            <table class="table">
+              <tbody>
+                <tr class="cart-form">
+                  <td class="actions" >
+                    <input type="button" class="button" id="update_cart" value="Update cart">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
           </div>
 
           <style>
@@ -97,4 +104,6 @@
   </div>
   <!-- section -->
 </div>
+
+
 @endsection
