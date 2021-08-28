@@ -113,5 +113,9 @@ Route::group(['prefix' => 'cart', 'middleware' => 'CheckLogin'], function()
     Route::post('addToCart/{id}', 'CartController@addToCart')->name('cart.add');
 
     Route::post('updateCart', 'CartController@updateCart')->name('cart.update');
+
+    Route::get('checkout', 'CartController@checkoutCart')->name('cart.checkout');
+
+    Route::post('order', 'CartController@orderCart')->name('cart.order');
 });
 

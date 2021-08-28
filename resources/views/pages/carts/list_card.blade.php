@@ -93,7 +93,7 @@
                 </tr>
                 <tr>
                   <td><button type="button" class="button continue">Continue Shopping</button></td>
-                  <td><button class="button">Checkout</button></td>
+                  <td><button class="button checkout">Checkout</button></td>
                 </tr>
               </tbody>
             </table>

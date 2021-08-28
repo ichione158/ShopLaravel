@@ -24,6 +24,13 @@ class DatabaseSeeder extends Seeder
             'status' => 2
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Ichione',
+            'email' => 'ichione@localhost.com',
+            'password' => Hash::make('123456'),
+            'status' => 1
+        ]);
+
         DB::table('brands')->insert([
             'name' => 'Adidas'
         ]);

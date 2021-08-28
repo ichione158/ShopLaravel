@@ -145,6 +145,14 @@
     location.href = '/';
   });
 
+  $('.checkout').click(function(){
+    location.href = " {{ route('cart.checkout') }} ";
+  });
+
+  $('.order').click(function(){
+    $('#form_checkout').submit();
+  });
+
   $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': "{{ csrf_token() }}"
