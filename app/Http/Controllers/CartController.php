@@ -155,6 +155,9 @@ class CartController extends Controller
                 'status'   => 1
             ]);
 
-        return 'Cảm ơn bạn đã mua hàng!';
+        $data['order'] = $order;
+        $data['title'] = 'Order';
+        
+        return view('pages.carts.order', $data);
     }
 }

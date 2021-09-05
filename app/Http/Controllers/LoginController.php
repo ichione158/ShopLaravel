@@ -17,12 +17,11 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            // if(Auth::user()->status == 2){
-            //     return 'admin';
-            // }else{
-            //     return 'user';
-            // }
-            return 'user';
+            if(Auth::user()->status == 2){
+                return 'admin';
+            }else{
+                return 'user';
+            }
         } else {
             return 'Error';
         }

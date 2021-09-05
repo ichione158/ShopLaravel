@@ -119,3 +119,8 @@ Route::group(['prefix' => 'cart', 'middleware' => 'CheckLogin'], function()
     Route::post('order', 'CartController@orderCart')->name('cart.order');
 });
 
+Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
+{
+    Route::get('/order', 'UserController@orderHistory')->name('user.order');
+});
+

@@ -48,15 +48,9 @@
             <div class="menu_side">
               <div id="navbar_menu">
                 <ul class="first-ul">
-                  <li> <a class="active" href="/">Home</a>
+                  <li> <a class="{{ Request::url() == Request::is('/') ? 'active' : '' }}" href="/">Home</a>
                   </li>
                   <li><a href="it_about.html">About Us</a></li>
-                  <li> <a href="it_service.html">Service</a>
-                    <ul>
-                      <li><a href="it_service_list.html">Services list</a></li>
-                      <li><a href="it_service_detail.html">Services Detail</a></li>
-                    </ul>
-                  </li>
                   <li> <a href="it_blog.html">Blog</a>
                     <ul>
                       <li><a href="it_blog.html">Blog List</a></li>
@@ -64,28 +58,19 @@
                       <li><a href="it_blog_detail.html">Blog Detail</a></li>
                     </ul>
                   </li>
-                  <li> <a href="#">Pages</a>
+                  <li> <a href="/" class="{{ request()->is('cart*') ? 'active' : '' }}" >Shop</a>
                     <ul>
-                      <li><a href="it_career.html">Career</a></li>
-                      <li><a href="it_price.html">Pricing</a></li>
-                      <li><a href="it_faq.html">Faq</a></li>
-                      <li><a href="it_privacy_policy.html">Privacy Policy</a></li>
-                      <li><a href="it_error.html">Error 404</a></li>
-                    </ul>
-                  </li>
-                  <li> <a href="it_shop.html">Shop</a>
-                    <ul>
-                      <li><a href="it_shop.html">Shop List</a></li>
+                      <li><a href="/">Shop List</a></li>
                       <li><a href="{{ route('cart.list') }}">Shopping Cart</a></li>
                     </ul>
                   </li>
                   <li> <a href="it_contact.html">Contact</a>
                   </li>
                   @if(!empty(Auth::user()))
-                  <li> <a href="#">Hello: <?= Auth::user()->name ?></a>
+                  <li> <a href="#" class="{{ request()->is('user*') ? 'active' : '' }}">Hello: <?= Auth::user()->name ?></a>
                     <ul>
                       <li><a href="it_shop.html">Profile</a></li>
-                      <li><a href="it_shop.html">Order</a></li>
+                      <li><a href="{{ route('user.order') }}">Order</a></li>
                       @if(Auth::user()->status == 2)
                       <li><a href="{{ route('admin') }}">Page Admin</a></li>
                       @endif

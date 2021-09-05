@@ -98,7 +98,8 @@
             if(resp.trim() == 'admin'){
                 location.href = '/admin/home';
             }else if(resp.trim() == 'user'){
-                location.href = document.referrer;
+                // location.href = document.referrer;
+                location.href = '/';
             }else{
                 alert('Email hoặc mật khẩu của bạn không đúng!');
             }
