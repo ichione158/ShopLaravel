@@ -24,4 +24,16 @@ class UserController extends Controller
 
         return view('pages.user.order_history', $data);
     }
+
+    public function orderProduct(Request $request){
+        $data['abc'] = $request->id_order;
+
+        $order_id = $request->id_order;
+
+        $data['orders'] = DB::table('carts')->where('order_id', '=', $order_id)
+                                            ->orderBy('created_at', 'desc')
+                                            ->get();
+
+        return view('pages.user.order_product', $data);
+    }
 }

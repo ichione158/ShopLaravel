@@ -122,5 +122,7 @@ Route::group(['prefix' => 'cart', 'middleware' => 'CheckLogin'], function()
 Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
 {
     Route::get('/order', 'UserController@orderHistory')->name('user.order');
+
+    Route::post('/order_product', 'UserController@orderProduct')->name('user.order_product');
 });
 
