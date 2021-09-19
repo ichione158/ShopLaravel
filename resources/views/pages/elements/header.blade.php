@@ -69,12 +69,12 @@
                   @if(!empty(Auth::user()))
                   <li> <a href="#" class="{{ request()->is('user*') ? 'active' : '' }}">Hello: <?= Auth::user()->name ?></a>
                     <ul>
-                      <li><a href="it_shop.html">Profile</a></li>
+                      <li><a href="{{ route('user.view_change_password') }}">Profile</a></li>
                       <li><a href="{{ route('user.order') }}">Order</a></li>
                       @if(Auth::user()->status == 2)
                       <li><a href="{{ route('admin') }}">Page Admin</a></li>
                       @endif
-                      <li><a href="logout">Logout</a></li>
+                      <li><a href="{{ route('logout') }}">Logout</a></li>
                     </ul>
                   </li>
                   @else

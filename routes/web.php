@@ -38,7 +38,7 @@ Route::post('login_user','LoginController@Login');
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
-});
+})->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
 {
@@ -124,5 +124,9 @@ Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
     Route::get('/order', 'UserController@orderHistory')->name('user.order');
 
     Route::post('/order_product', 'UserController@orderProduct')->name('user.order_product');
+
+    Route::get('/change_pass', 'UserController@viewChangePassword')->name('user.view_change_password');
+
+    Route::post('/change', 'UserController@changePass')->name('user.change_pass');
 });
 
