@@ -12,14 +12,13 @@
 
     .table_product td, .table_product th {
         border-top: none;
-        width: 100%;
     }
 
 </style>
 
 <div class="checkout_page">
     <div class="section padding_layout_1 checkout_section">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                     <div class="product-table">
@@ -38,11 +37,21 @@
                         <tbody>
                             @if(!$orders->isEmpty())
                                 @foreach($orders as $key => $row)
+                                    <?php 
+                                        $status = '';
+                                        if($row->status == 1){
+                                            $status = 'Waiting';
+                                        }else if($row->status == 2){
+                                            $status = 'Shipping';
+                                        }else if($row->status == 3){
+                                            $status = 'Success';
+                                        }
+                                    ?>
                                     <tr class='clickable-row' data-href='order_detail/{{ $row->code_order }}' >
                                         <td class="col-sm-1 col-md-1 text-center">{{ $key + 1 }}</td>
-                                        <td class="col-sm-2 col-md-2 text-center">{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
+                                        <td class="col-sm-2 col-md-1 text-center">{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
                                         <td class="col-sm-1 col-md-1 text-center">{{ $row->code_order }}</td>
-                                        <td class="col-sm-2 col-md-2 text-center">{{ $row->address }}</td>
+                                        <td class="col-sm-2 col-md-3 text-center">{{ $row->address }}</td>
                                         <td class="table_product order_product_{{ $key + 1 }}">
 
                                         </td>
@@ -50,7 +59,7 @@
                                             {{ number_format($row->total) }} VNĐ
                                         </td>
                                         <td class="col-sm-1 col-md-1 text-center">
-                                            Shipping
+                                            {{ $status }}
                                         </td>
                                     </tr>
                                 @endforeach;

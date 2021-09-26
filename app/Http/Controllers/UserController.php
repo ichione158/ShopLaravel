@@ -20,7 +20,7 @@ class UserController extends Controller
         $user_id = Auth::id();
 
         $data['orders'] = DB::table('orders')->where('user_id', '=', $user_id)
-                                            ->where('status', '=', 1)
+                                            ->where('status', '!=', 0)
                                             ->orderBy('created_at', 'desc')
                                             ->get();
 

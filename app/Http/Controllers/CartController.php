@@ -13,6 +13,38 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    public function index(){
+        $data['list_status'] = [
+            [
+                'id'   => 1,
+                'name' => 'Chờ lấy hàng'
+            ],
+            [
+                'id'   => 2,
+                'name' => 'Đang giao'
+            ],
+            [
+                'id'   => 3,
+                'name' => 'Hoàn thành'
+            ]
+        ];
+
+        $data['orders'] = DB::table('orders')->where('status', '!=', 0)->get();
+        
+        return view('admin.orders.list', $data);
+    }
+
+    public function orderProduct(Request $request){
+        $data['abc'] = $request->id_order;
+
+        $order_id = $request->id_order;
+
+        $data['orders'] = DB::table('carts')->where('order_id', '=', $order_id)
+                                            ->orderBy('created_at', 'desc')
+                                            ->get();
+
+        return view('admin.orders.list_order_product', $data);
+    }
 
     public function userCart(){
         $user_id = Auth::id();
@@ -24,6 +56,14 @@ class CartController extends Controller
         $data['title'] = 'Shopping Cart';
 
         return view('pages.carts.list_card', $data);
+    }
+
+    function updateStatus(Request $request){
+        $data = [
+            'status' => $request->status
+        ];
+
+        Order::where('id', '=', $request->id)->update($data);
     }
 
     public function addToCart(Request $request, $id){

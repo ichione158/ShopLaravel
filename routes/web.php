@@ -96,6 +96,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
 
         Route::post('/{id}','CategoryController@categoryEdit')->name('category.edit');
     });
+
+    // Order 
+    Route::prefix('order')->group(function () {
+        Route::get('/', 'CartController@index')->name('order.index');
+
+        Route::post('/order_product', 'CartController@orderProduct')->name('order.order_product');
+
+        Route::post('/udate_status', 'CartController@updateStatus')->name('order.update_status');
+    });
 });
 
 Route::get('/{Product::slug}', function ($slugString) {

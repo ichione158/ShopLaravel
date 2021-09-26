@@ -15,7 +15,10 @@
                         <img class="media-object" src="{{ URL::asset($row->path.$row->image) }}" alt="#">  {{ $row->product_name }}
                     </a>
                 </td>
-                <td>
+                <td class="col-sm-2 col-md-2">
+                    SL: {{ $row->quantity }}
+                </td>
+                <td class="col-sm-2 col-md-2">
                     {{ number_format($row->product_price) }} VNĐ
                 </td>
             </tr>
