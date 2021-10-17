@@ -61,5 +61,9 @@ class BrandController extends Controller
 
         echo 'success';
     }
-    
+
+    public function brandDelete($id){
+        $brand = Brand::find($id);
+        $brand->delete();
+    }
 }

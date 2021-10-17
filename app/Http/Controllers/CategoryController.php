@@ -60,4 +60,9 @@ class CategoryController extends Controller
 
         echo 'success';
     }
+
+    public function categoryDelete($id){
+        $category = Category::find($id);
+        $category->delete();
+    }
 }

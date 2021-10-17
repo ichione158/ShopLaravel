@@ -135,4 +135,12 @@ class ProductController extends Controller
 
         return 'success';
     }
+
+    public function productDelete($id){
+        $data = [
+            'status' => 2
+        ];
+        
+        Product::where('id', '=', $id)->update($data);
+    }
 }
