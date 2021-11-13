@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -56,7 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
         Route::get('/', 'ProductController@index')->name('product.index');
 
         Route::get('create', function () {
-            $brands = Brand::all();
+            $brands = Brand::where('status', '=', '1')->get();
             $data['brands'] = $brands;
             return view('admin.products.add', $data);
         })->name('product.create');
@@ -67,6 +68,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
 
         Route::post('/{id}','ProductController@productEdit')->name('product.edit');
 
+        Route::post('change_status/{id}', function ($id) {
+            $data = [
+                'status' => $_POST['value']
+            ];
+            
+            Product::where('id', '=', $id)->update($data);
+        });
     });
 
     // Brand
@@ -81,6 +89,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
         Route::get('/{id}', 'BrandController@Edit')->name('brand.show');
 
         Route::post('/{id}','BrandController@brandEdit')->name('brand.edit');
+
+        Route::delete('brand_delete/{id}', function ($id) {
+            $data = [
+                'status' => 0
+            ];
+            
+            Brand::where('id', '=', $id)->update($data);
+        });
     });
 
     // Category
@@ -95,6 +111,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
         Route::get('/{id}', 'CategoryController@Edit')->name('category.show');
 
         Route::post('/{id}','CategoryController@categoryEdit')->name('category.edit');
+
+        Route::delete('cate_delete/{id}', function ($id) {
+            $data = [
+                'category_status' => 0
+            ];
+            
+            Category::where('id', '=', $id)->update($data);
+        });
     });
 
     // Order 

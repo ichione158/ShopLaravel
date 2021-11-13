@@ -118,6 +118,17 @@
         })
     }
 
+    function delete_brand(id){        
+        if(confirm('Are you sure you want to delete this')){
+            $.ajax({
+                type: 'delete',
+                url : '/admin/brand/brand_delete/'+id,
+            }).done(function(resp){
+                listBrands();
+            })
+        }
+    }
+
     $('#create').click(function(){
         $('#add_brand').show();
         $('#edit_brand').hide();

@@ -65,8 +65,12 @@
 
           <div class="shopping-cart-cart">
             <?php 
-              $ship = 15000;  
-
+              if(count($carts) == 0){
+                $ship = 0;
+              }else{
+                $ship = 15000;
+              }
+      
               if($sup_total > 1000000){
                 $ship = 0;
               }

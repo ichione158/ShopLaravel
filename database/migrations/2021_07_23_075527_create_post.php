@@ -20,6 +20,7 @@ class CreatePost extends Migration
             $table->longText('content_post');
             $table->text('description');
             $table->integer('status_post');
+            $table->integer('status')->default('1');
             $table->timestamps();
         });
     }

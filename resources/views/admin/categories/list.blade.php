@@ -118,6 +118,17 @@
         })
     }
 
+    function delete_category(id){
+        if(confirm('Are you sure you want to delete this')){
+            $.ajax({
+                type: 'delete',
+                url : '/admin/category/cate_delete/'+id,
+            }).done(function(resp){
+                listCategories();
+            })
+        }
+    }
+
     $('#create').click(function(){
         $('#add_category').show();
         $('#edit_category').hide();

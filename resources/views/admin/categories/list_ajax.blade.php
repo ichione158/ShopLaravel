@@ -8,7 +8,7 @@
                 {{ $row->name }}
             </td>
             <td>
-                <a onclick="edit_category(<?= $row->id ?>)" href="#">Edit</a> | <a href="">Delete</a>
+                <a onclick="edit_category(<?= $row->id ?>)" href="#">Edit</a> | <a onclick="delete_category(<?= $row->id ?>)" href="#">Delete</a>
             </td>
         </tr>
     @endforeach

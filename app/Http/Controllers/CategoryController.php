@@ -14,7 +14,7 @@ class CategoryController extends Controller
     }
 
     public function listCategories(){
-        $categories = Category::all();
+        $categories = Category::where('category_status', '=', '1')->get();
         $data['categories'] = $categories;
         echo view('admin.categories.list_ajax', $data);
     }

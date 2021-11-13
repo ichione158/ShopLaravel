@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->text('path')->nullable();
             $table->text('color')->nullable();
             $table->string('code')->nullable();
+            $table->integer('status')->default('1');
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('cascade');

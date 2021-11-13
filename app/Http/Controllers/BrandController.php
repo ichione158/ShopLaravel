@@ -16,7 +16,7 @@ class BrandController extends Controller
     }
 
     public function listBrands(){
-        $brands = Brand::all();
+        $brands = Brand::where('status', '=', '1')->get();
         $data['brands'] = $brands;
         echo view('admin.brands.list_ajax', $data);
     }

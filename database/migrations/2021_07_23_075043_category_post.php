@@ -16,7 +16,7 @@ class CategoryPost extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('category_status');
+            $table->integer('category_status')->default('1');
             $table->timestamps();
         });
     }

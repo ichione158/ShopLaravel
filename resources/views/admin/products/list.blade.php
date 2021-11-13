@@ -24,7 +24,7 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Code</th>
-                                <th>Status</th>
+                                <th>Show View</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -46,14 +46,12 @@
                                 <td>
                                     {{ $row->code }}
                                 </td>
-                                <th>
-                                    <div class="box-1">
-                                        <input type='checkbox'/>
-                                        <span class="toogle"></span>
-                                    </div>
+                                <th style="text-align: center; vertical-align: middle;">
+                                    <input onchange="change_status({{ $row->id }})" id="change_{{ $row->id }}" style="width: 30px; height: 30px;" type="checkbox" {{ $row->status == 1 ? 'checked' : '' }}>
+                                    <label for="change_{{ $row->id }}"></label>
                                 </th>
                                 <td>
-                                    <a href="{{ route('product.show', $row->id) }}">Edit</a> | <a href="">Delete</a>
+                                    <a href="{{ route('product.show', $row->id) }}">Edit</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -66,5 +64,25 @@
     {{-- Footer!!! --}}
     @include('admin.elements.footer')
 </div>
+
+<script>
+    function change_status(id){
+        let value = 0;
+        if($('#change_'+id).is(":checked")){
+            value = 1;
+        }
+        
+        $.ajax({
+            type: "POST",
+            url : '/admin/product/change_status/'+id,
+            data: {
+                value: value
+            }
+        }).done(function(resp){
+
+        })
+    }
+</script>
+
 <!-- end section -->
 @endsection

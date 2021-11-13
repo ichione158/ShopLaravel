@@ -7,7 +7,7 @@
             {{ $row->name }}
         </td>
         <td>
-            <a onclick="edit_brand(<?= $row->id ?>)" href="#">Edit</a> | <a href="">Delete</a>
+            <a onclick="edit_brand(<?= $row->id ?>)" href="#">Edit</a> | <a onclick="delete_brand(<?= $row->id ?>)" href="#">Delete</a>
         </td>
     </tr>
 @endforeach

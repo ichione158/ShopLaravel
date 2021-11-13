@@ -117,7 +117,7 @@
                 ]
         });
         
-          var image = 'front-end/images/it_service/location_icon_map_cont.png';
+          var image = '{{URL::asset('front-end/images/it_service/location_icon_map_cont.png')}}';
           var beachMarker = new google.maps.Marker({
             position: {lat: 40.645037, lng: -73.880224},
             map: map,
