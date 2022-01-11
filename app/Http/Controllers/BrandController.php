@@ -18,7 +18,7 @@ class BrandController extends Controller
     public function listBrands(){
         $brands = Brand::where('status', '=', '1')->get();
         $data['brands'] = $brands;
-        echo view('admin.brands.list_ajax', $data);
+        return view('admin.brands.list_ajax', $data);
     }
 
     public function brandAdd(Request $request){
@@ -41,7 +41,7 @@ class BrandController extends Controller
 
     public function Edit($id){
         $brand = Brand::find($id);
-        echo $brand->name;
+        return $brand->name;
     }
 
     public function brandEdit(Request $request, $id){

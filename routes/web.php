@@ -161,5 +161,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
     Route::get('/change_pass', 'UserController@viewChangePassword')->name('user.view_change_password');
 
     Route::post('/change', 'UserController@changePass')->name('user.change_pass');
+
+    Route::post('/updateCart', 'UserController@updateCart')->name('user.updateCart');
 });
 

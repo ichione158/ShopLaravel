@@ -27,6 +27,14 @@ class UserController extends Controller
         return view('pages.user.order_history', $data);
     }
 
+    public function updateCart(Request $request){
+        $data = [
+            'status' => $request->status
+        ];
+
+        Order::where('id', '=', $request->id)->update($data);
+    }
+
     public function orderProduct(Request $request){
         $data['abc'] = $request->id_order;
 

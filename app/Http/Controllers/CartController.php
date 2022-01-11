@@ -17,15 +17,15 @@ class CartController extends Controller
         $data['list_status'] = [
             [
                 'id'   => 1,
-                'name' => 'Chờ lấy hàng'
+                'name' => 'Processing'
             ],
             [
                 'id'   => 2,
-                'name' => 'Đang giao'
+                'name' => 'Shipping'
             ],
             [
                 'id'   => 3,
-                'name' => 'Hoàn thành'
+                'name' => 'Success'
             ]
         ];
 

@@ -14,6 +14,17 @@
         border-top: none;
     }
 
+    .confirm{
+        color: green;
+        font-weight: bold;
+    }
+
+    .confirm:hover {
+        cursor: pointer;
+        background: green;
+        color: white;
+        transition: 0.5s;
+    }
 </style>
 
 <div class="checkout_page">
@@ -39,12 +50,15 @@
                             @foreach($orders as $key => $row)
                                 <?php 
                                     $status = '';
+                                    $style  = '';
                                     if($row->status == 1){
-                                        $status = 'Waiting';
+                                        $status = 'Processing';
+                                        $style  = 'color: #ffc107; font-weight: bold;';
                                     }else if($row->status == 2){
                                         $status = 'Shipping';
                                     }else if($row->status == 3){
                                         $status = 'Success';
+                                        $style  = 'color: green; font-weight: bold;';
                                     }
                                 ?>
                                 <tr class='clickable-row' data-href='order_detail/{{ $row->code_order }}' >
@@ -58,8 +72,12 @@
                                     <td class="col-sm-1 col-md-1 text-center" style="color: red">
                                         {{ number_format($row->total) }} VNĐ
                                     </td>
-                                    <td class="col-sm-1 col-md-1 text-center">
-                                        {{ $status }}
+                                    <td class="col-sm-1 col-md-1 text-center" style="<?= $style ?>">
+                                        <?php if($row->status== 2) : ?>
+                                            <button class="form-control confirm" data-id="{{ $row->id }}">Order Confirmation</button>
+                                        <?php else: ?>
+                                            {{ $status }}
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             @endforeach;
@@ -100,6 +118,21 @@
             $('.order_product_'+number).html(resp);
         });
     }
+
+    $('.confirm').click(function(){
+        let id = $(this).data('id');
+        let status = 3;
+        $.ajax({
+            type: "POST",
+            url : '{{ route("user.updateCart") }}',
+            data:{
+                id : id,
+                status: status
+            }
+        }).done(function(resp){
+            location.reload();
+        });
+    });
 </script>
 <!-- section -->
 @endsection
