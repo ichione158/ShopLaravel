@@ -35,7 +35,7 @@
                                     {{ $key + 1 }}
                                 </td>
                                 <td>
-                                    {{ $row->brand_id }}
+                                    {{ $row->brand->name }}
                                 </td>
                                 <td>
                                     {{ $row->name }}

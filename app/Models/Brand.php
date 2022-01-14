@@ -10,4 +10,9 @@ class Brand extends Model
     public $timestamps = true;
     protected $table = "brands";
     protected $guarded = ['id']; 
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -24,13 +24,13 @@ class Product extends Model
         ];
     }
 
-    public function carts()
+    public function cart()
     {
         return $this->hasMany(Cart::class);
     }
 
-    public function postCategory()
+    public function brand()
     {
-        return $this->hasMany(Cart::class);
+        return $this->belongsTo(Brand::class);
     }
 }
