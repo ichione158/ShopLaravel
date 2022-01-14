@@ -13,9 +13,15 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 class ProductController extends Controller
 {
     public function index(){
-        $data['products'] = Product::all();
+        $data['products'] = Product::where('status', '!=', '3')->get();
         
         return view('admin.products.list', $data);
+    }
+
+    public function indexProductDelete(){
+        $data['products'] = Product::where('status', '=', '3')->get();
+        
+        return view('admin.products.list_delete', $data);
     }
 
     public function productAdd(Request $request){

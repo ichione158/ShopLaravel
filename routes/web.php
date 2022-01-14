@@ -62,6 +62,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
             return view('admin.products.add', $data);
         })->name('product.create');
 
+        Route::get('/listDelete', 'ProductController@indexProductDelete')->name('product.indexProductDelete');
+
         Route::post('/','ProductController@productAdd')->name('product.add');
 
         Route::get('/{id}', 'ProductController@Edit')->name('product.show');
@@ -119,6 +121,33 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
             
             Category::where('id', '=', $id)->update($data);
         });
+    });
+
+    // Category
+    Route::prefix('post')->group(function () {
+
+        Route::get('/', 'PostController@index')->name('post.index');
+
+        Route::get('/create', function () {
+            $categories = Category::where('category_status', '=', '1')->get();
+            $data['categories'] = $categories;
+            return view('admin.posts.add', $data);
+        })->name('post.create');
+
+        Route::post('/','PostController@postAdd')->name('post.add');
+
+        Route::get('/{id}', 'PostController@Edit')->name('post.show');
+
+        Route::post('/{id}','PostController@postEdit')->name('post.edit');
+
+        // Route::delete('cate_delete/{id}', function ($id) {
+        //     $data = [
+        //         'category_status' => 0
+        //     ];
+            
+        //     Category::where('id', '=', $id)->update($data);
+        // });
+
     });
 
     // Order 

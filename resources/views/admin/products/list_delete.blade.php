@@ -24,7 +24,6 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Code</th>
-                                <th>Show View</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -46,13 +45,8 @@
                                 <td>
                                     {{ $row->code }}
                                 </td>
-                                <th style="text-align: center; vertical-align: middle;">
-                                    <input class="changeStatus" data-id="{{ $row->id }}" style="width: 30px; height: 30px;" type="checkbox" {{ $row->status == 1 ? 'checked' : '' }}>
-                                    <label for="change_{{ $row->id }}"></label>
-                                </th>
                                 <td class="option">
-                                    <a href="{{ route('product.show', $row->id) }}">Edit</a> |
-                                    <a href="#" class="deleteProduct" data-id="{{ $row->id }}">Delete</a>
+                                    <a href="#" class="recoverProduct" data-id="{{ $row->id }}">Recover</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -67,24 +61,10 @@
 </div>
 
 <script>
-    $(".deleteProduct").live('click',function(e){
+    $(".recoverProduct").live('click',function(e){
         let id = $(this).data('id');
-        let value = 3;
-        change_status(id, value);
-    });
-
-    $(".changeStatus").live('click',function(e){
         let value = 0;
-        let id = $(this).data('id');
-        
-        if($(this).is(":checked")){
-            value = 1;
-        }
-        change_status(id, value);
-    });
 
-    function change_status(id, value){
-        
         $.ajax({
             type: "POST",
             url : '/admin/product/change_status/'+id,
@@ -92,11 +72,9 @@
                 value: value
             }
         }).done(function(resp){
-            if(value == 3){
-                location.reload();
-            }
+            location.reload();
         })
-    }
+    });
 </script>
 
 <!-- end section -->
