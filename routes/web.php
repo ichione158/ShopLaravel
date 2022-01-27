@@ -160,7 +160,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckAdmin'], function()
     });
 });
 
-Route::get('/{Product::slug}', function ($slugString) {
+Route::get('/product/{slug}', function ($slugString) {
     $data['title'] = 'Shop Detail';
     
     $data['product'] = Product::where('slug','=',$slugString)->firstOrFail();
@@ -194,3 +194,12 @@ Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
     Route::post('/updateCart', 'UserController@updateCart')->name('user.updateCart');
 });
 
+Route::get('/contact', function () {
+    $data = [
+        'title'  => 'It.Next - Ichione',
+        'active' => 'contact'
+    ];
+    return view('pages.support.contact', $data);
+})->name('contact');
+
+Route::post('/contact', 'ContactController@addContact')->name('contact.add');

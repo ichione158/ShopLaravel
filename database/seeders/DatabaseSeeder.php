@@ -21,22 +21,26 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@localhost.com',
             'password' => Hash::make('123456'),
-            'status' => 2
+            'status' => 2,
+            'created_at' => now()
         ]);
 
         DB::table('users')->insert([
             'name' => 'Ichione',
             'email' => 'ichione@localhost.com',
             'password' => Hash::make('123456'),
-            'status' => 1
+            'status' => 1,
+            'created_at' => now()
         ]);
 
         DB::table('brands')->insert([
-            'name' => 'Adidas'
+            'name' => 'Adidas',
+            'created_at' => now()
         ]);
 
         DB::table('brands')->insert([
-            'name' => 'Sketchy'
+            'name' => 'Sketchy',
+            'created_at' => now()
         ]);
 
         DB::table('products')->insert([
@@ -50,7 +54,8 @@ class DatabaseSeeder extends Seeder
                             - Chất liệu vải: 100% cotton USA',
             'image'      => 'sketchy_de_basic.jpg',
             'path'       => 'uploads/products/1/',
-            'code'       => 'SK_01'
+            'code'       => 'SK_01',
+            'created_at' => now()
         ]);
 
         DB::table('products')->insert([
@@ -64,7 +69,8 @@ class DatabaseSeeder extends Seeder
                             - Chất liệu vải: 100% cotton USA',
             'image'      => 'sketchy_fuyall.jpg',
             'path'       => 'uploads/products/2/',
-            'code'       => 'SK_01'
+            'code'       => 'SK_02',
+            'created_at' => now()
         ]);
     }
 }

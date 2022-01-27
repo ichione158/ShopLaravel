@@ -51,20 +51,20 @@
                   <li> <a class="{{ Request::url() == Request::is('/') ? 'active' : '' }}" href="/">Home</a>
                   </li>
                   <li><a href="it_about.html">About Us</a></li>
-                  <li> <a href="it_blog.html">Blog</a>
+                  {{-- <li> <a href="it_blog.html">Blog</a>
                     <ul>
                       <li><a href="it_blog.html">Blog List</a></li>
                       <li><a href="it_blog_grid.html">Blog Grid</a></li>
                       <li><a href="it_blog_detail.html">Blog Detail</a></li>
                     </ul>
-                  </li>
+                  </li> --}}
                   <li> <a href="/" class="{{ request()->is('cart*') ? 'active' : '' }}" >Shop</a>
                     <ul>
                       <li><a href="/">Shop List</a></li>
                       <li><a href="{{ route('cart.list') }}">Shopping Cart</a></li>
                     </ul>
                   </li>
-                  <li> <a href="it_contact.html">Contact</a>
+                  <li> <a href="{{ route('contact') }}">Contact</a>
                   </li>
                   @if(!empty(Auth::user()))
                   <li> <a href="#" class="{{ request()->is('user*') ? 'active' : '' }}">Hello: <?= Auth::user()->name ?></a>
