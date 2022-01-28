@@ -126,7 +126,7 @@
         }
       </script>
 <!-- google map js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaFr7A1JrNxHZvIW9HWKdSoUGQ5ak4FrE&callback=initMap"></script>
 <!-- end google map js -->
 <script src='{{URL::asset('front-end/js/hizoom.js')}}'></script>
 
