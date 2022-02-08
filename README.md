@@ -7,7 +7,7 @@ Install/Update composer
 - composer require cviebrock/eloquent-sluggable
 
 Generate Key for app
-
+- cp .env.example .env 
 - php artisan key:generate 
 
 Setup file .env, setup Database
