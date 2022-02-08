@@ -21,7 +21,7 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     $data = [
-        'title'  => 'It.Next - Ichione',
+        'title'  => 'Sketchy',
         'active' => 'home'
     ];
 
@@ -196,10 +196,18 @@ Route::group(['prefix' => 'user', 'middleware' => 'CheckLogin'], function()
 
 Route::get('/contact', function () {
     $data = [
-        'title'  => 'It.Next - Ichione',
+        'title'  => 'Sketchy - Contact',
         'active' => 'contact'
     ];
     return view('pages.support.contact', $data);
 })->name('contact');
+
+Route::get('/about', function () {
+    $data = [
+        'title'  => 'Sketchy - About',
+        'active' => 'contact'
+    ];
+    return view('pages.support.about', $data);
+})->name('about');
 
 Route::post('/contact', 'ContactController@addContact')->name('contact.add');

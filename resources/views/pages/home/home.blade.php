@@ -181,28 +181,28 @@
               <div class="text_align_right">
                 <p class="counter-heading text_align_right">Happy Customers</p>
               </div>
-              <h5 class="counter-count">2150</h5>
+              <h5 class="counter-count">200</h5>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-              <div class="text_align_right"><i class="fa fa-laptop"></i></div>
+              <div class="text_align_right"><i class="fa fa-money"></i></div>
               <div class="text_align_right">
-                <p class="counter-heading text_align_right">Laptop Repaired</p>
+                <p class="counter-heading text_align_right">Checkout</p>
               </div>
-              <h5 class="counter-count">1280</h5>
+              <h5 class="counter-count">150</h5>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-              <div class="text_align_right"><i class="fa fa-desktop"></i></div>
+              <div class="text_align_right"><i class="fa fa-thumbs-o-up"></i></div>
               <div class="text_align_right">
-                <p class="counter-heading">Computer Repaired</p>
+                <p class="counter-heading">Like</p>
               </div>
-              <h5 class="counter-count">848</h5>
+              <h5 class="counter-count">262</h5>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-              <div class="text_align_right"><i class="fa fa-windows"></i></div>
+              <div class="text_align_right"><i class="fa fa-check-circle"></i></div>
               <div class="text_align_right">
-                <p class="counter-heading">OS Installed</p>
+                <p class="counter-heading">Follow This Page</p>
               </div>
-              <h5 class="counter-count">450</h5>
+              <h5 class="counter-count">265</h5>
             </div>
           </div>
         </div>

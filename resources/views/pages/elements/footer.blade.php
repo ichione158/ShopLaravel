@@ -27,8 +27,8 @@
                 <h2>Additional links</h2>
               </div>
               <ul class="footer-menu">
-                <li><a href="it_about.html"><i class="fa fa-angle-right"></i> About us</a></li>
-                <li><a href="it_news.html"><i class="fa fa-angle-right"></i> Product</a></li>
+                <li><a href="{{ route('about') }}"><i class="fa fa-angle-right"></i> About us</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i> Product</a></li>
                 <li><a href="{{ route('contact') }}"><i class="fa fa-angle-right"></i> Contact us</a></li>
               </ul>
             </div>

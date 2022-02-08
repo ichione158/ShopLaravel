@@ -50,7 +50,7 @@
                 <ul class="first-ul">
                   <li> <a class="{{ Request::url() == Request::is('/') ? 'active' : '' }}" href="/">Home</a>
                   </li>
-                  <li><a href="it_about.html">About Us</a></li>
+                  <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ route('about') }}">About Us</a></li>
                   {{-- <li> <a href="it_blog.html">Blog</a>
                     <ul>
                       <li><a href="it_blog.html">Blog List</a></li>
@@ -64,7 +64,7 @@
                       <li><a href="{{ route('cart.list') }}">Shopping Cart</a></li>
                     </ul>
                   </li>
-                  <li> <a href="{{ route('contact') }}">Contact</a>
+                  <li> <a class="{{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
                   </li>
                   @if(!empty(Auth::user()))
                   <li> <a href="#" class="{{ request()->is('user*') ? 'active' : '' }}">Hello: <?= Auth::user()->name ?></a>
