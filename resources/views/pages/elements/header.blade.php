@@ -8,8 +8,8 @@
             <div class="full">
               <div class="topbar-left">
                 <ul class="list-inline">
-                  <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">540 Lorem Ipsum New York, AB 90218</span> </li>
-                  <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></span> </li>
+                  <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">47 Lê Lai, phường 12, quận Tân Bình, thành phố Hồ Chí Minh</span> </li>
+                  <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">hoan.duy1508@gmail.com</a></span> </li>
                 </ul>
               </div>
             </div>
@@ -18,8 +18,8 @@
             <div class="float-left">
               <div class="social_icon">
                 <ul class="list-inline">
-                  <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
-                  <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                  <li><a class="fa fa-facebook" href="javascript::void(0)" onclick="window.open('https://www.facebook.com/SketchyxDetrinity')" title="Facebook" target="_blank"></a></li>
+                  <li><a class="fa fa-google-plus" href="mailto:hoan.duy1508@gmail.com" title="Google+" target="_blank"></a></li>
                   <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
                   <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
                   <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>

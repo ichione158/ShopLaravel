@@ -64,7 +64,7 @@
           <div class="full">
             <div class="main_heading text_align_left">
               <h2>Service Process</h2>
-              <p class="large">Easy and effective way to get your device repaired.</p>
+              <p class="large"></p>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@
                 <div class="service_blog_inner">
                   <div class="icon text_align_left"><img src="{{URL::asset('front-end/images/it_service/si1.png')}}" alt="#" /></div>
                   <h4 class="service-heading">Fast service</h4>
-                  <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                  <p>Delivery time from 2-3 days. Deliver to home.</p>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@
                 <div class="service_blog_inner">
                   <div class="icon text_align_left"><img src="{{URL::asset('front-end/images/it_service/si2.png')}}" alt="#" /></div>
                   <h4 class="service-heading">Secure payments</h4>
-                  <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                  <p>COD payment. Receive goods -> Check goods -> Payment</p>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
                 <div class="service_blog_inner">
                   <div class="icon text_align_left"><img src="{{URL::asset('front-end/images/it_service/si4.png')}}" alt="#" /></div>
                   <h4 class="service-heading">Affordable services</h4>
-                  <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                  <p>Good price. The best quality.</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                 <div class="service_blog_inner">
                   <div class="icon text_align_left"><img src="{{URL::asset('front-end/images/it_service/si5.png')}}" alt="#" /></div>
                   <h4 class="service-heading">7 Days warranty</h4>
-                  <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                  <p></p>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@
           <div class="full">
             <div class="main_heading text_align_right">
               <h2>Our Feedback</h2>
-              <p class="large">Easy and effective way to get your device repaired.</p>
+              <p class="large"></p>
             </div>
           </div>
         </div>
